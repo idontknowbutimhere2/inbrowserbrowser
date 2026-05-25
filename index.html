@@ -1,78 +1,237 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>InBrowser-Browser</title>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+  <title>InBrowserBrowser</title>
 
   <style>
 
+    * {
+      box-sizing: border-box;
+    }
+
     body {
+
       margin: 0;
-      background: black;
+
+      background: #000;
+
       color: white;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
       height: 100vh;
 
       display: flex;
+
       justify-content: center;
+
       align-items: center;
 
-      font-family: Arial;
+      overflow: hidden;
     }
 
     .container {
+
       text-align: center;
+
+      width: 100%;
+
+      max-width: 700px;
+
+      padding: 40px;
     }
 
     h1 {
+
       font-size: 70px;
-      margin-bottom: 60px;
-      font-weight: normal;
+
+      font-weight: 600;
+
+      letter-spacing: 2px;
+
+      margin-bottom: 70px;
+
+      color: white;
     }
 
-    button {
+    .browser {
 
-      width: 300px;
-      padding: 20px;
+      width: 100%;
 
-      font-size: 40px;
+      padding: 28px;
 
-      background: white;
-      color: black;
+      margin-bottom: 25px;
+
+      border-radius: 18px;
+
+      border: 2px solid #222;
+
+      background: #111;
+
+      color: white;
+
+      font-size: 36px;
+
+      font-weight: 500;
+
+      cursor: pointer;
+
+      transition:
+        background 0.2s,
+        transform 0.15s,
+        border 0.2s;
+    }
+
+    .browser:hover {
+
+      background: #1a1a1a;
+
+      transform: scale(1.02);
+    }
+
+    .selected {
+
+      border: 2px solid white;
+
+      background: #1d1d1d;
+    }
+
+    .start {
+
+      margin-top: 30px;
+
+      width: 100%;
+
+      padding: 30px;
 
       border: none;
 
-      margin-top: 20px;
+      border-radius: 18px;
+
+      background: white;
+
+      color: black;
+
+      font-size: 38px;
+
+      font-weight: 700;
 
       cursor: pointer;
+
+      transition:
+        transform 0.15s,
+        opacity 0.2s;
     }
 
-    button:hover {
-      opacity: 0.8;
+    .start:hover {
+
+      opacity: 0.9;
+
+      transform: scale(1.02);
+    }
+
+    .footer {
+
+      margin-top: 40px;
+
+      color: #666;
+
+      font-size: 15px;
+
+      letter-spacing: 1px;
     }
 
   </style>
+
 </head>
 
 <body>
 
   <div class="container">
 
-    <h1>inbrowserbrowser</h1>
+    <h1>InBrowserBrowser</h1>
 
-    <button onclick="startChrome()">
-      chrome
+    <div
+      id="chrome"
+      class="browser selected"
+      onclick="selectBrowser('chrome')">
+
+      Chrome
+
+    </div>
+
+    <div
+      id="firefox"
+      class="browser"
+      onclick="selectBrowser('firefox')">
+
+      Firefox
+
+    </div>
+
+    <button
+      class="start"
+      onclick="startBrowser()">
+
+      Start
+
     </button>
+
+    <div class="footer">
+
+      Cloud Browsing Platform
+
+    </div>
 
   </div>
 
   <script>
 
-    function startChrome() {
+    let selected = "chrome";
 
-      window.location.href =
-        "https://inbrowserbrowser.onrender.com/";
+    function selectBrowser(browser) {
 
+      selected = browser;
+
+      document
+        .getElementById("chrome")
+        .classList
+        .remove("selected");
+
+      document
+        .getElementById("firefox")
+        .classList
+        .remove("selected");
+
+      document
+        .getElementById(browser)
+        .classList
+        .add("selected");
+    }
+
+    function startBrowser() {
+
+      if (selected === "chrome") {
+
+        window.location.href =
+          "https://inbrowserbrowser.onrender.com";
+
+      } else {
+
+        window.location.href =
+          "https://inbrowserbrowser-firefox.onrender.com";
+      }
     }
 
   </script>
