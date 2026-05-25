@@ -1,10 +1,12 @@
-version: '3'
+version: "3"
 
 services:
 
-  chrome:
+  chromium:
+
     image: lscr.io/linuxserver/chromium:latest
-    container_name: chrome-browser
+
+    container_name: chromium
 
     security_opt:
       - seccomp:unconfined
@@ -13,30 +15,10 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=America/Toronto
+      - CHROME_CLI=--remote-debugging-port=9222
 
     ports:
-      - "3000:3000"
+      - 3000:3000
+      - 9222:9222
 
     shm_size: "1gb"
-
-    restart: unless-stopped
-
-
-  firefox:
-    image: lscr.io/linuxserver/firefox:latest
-    container_name: firefox-browser
-
-    security_opt:
-      - seccomp:unconfined
-
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=America/Toronto
-
-    ports:
-      - "3001:3000"
-
-    shm_size: "1gb"
-
-    restart: unless-stopped
