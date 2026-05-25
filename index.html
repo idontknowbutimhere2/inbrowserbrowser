@@ -152,6 +152,45 @@
       letter-spacing: 1px;
     }
 
+    .new-tab {
+
+      position: fixed;
+
+      bottom: 30px;
+
+      right: 30px;
+
+      width: 70px;
+
+      height: 70px;
+
+      border-radius: 50%;
+
+      border: none;
+
+      background: white;
+
+      color: black;
+
+      font-size: 42px;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 0 20px rgba(255,255,255,0.2);
+
+      transition:
+        transform 0.15s,
+        opacity 0.2s;
+    }
+
+    .new-tab:hover {
+
+      transform: scale(1.08);
+
+      opacity: 0.9;
+    }
+
   </style>
 
 </head>
@@ -196,6 +235,14 @@
 
   </div>
 
+  <button
+    class="new-tab"
+    onclick="openNewTab()">
+
+    +
+
+  </button>
+
   <script>
 
     let selected = "chrome";
@@ -220,18 +267,29 @@
         .add("selected");
     }
 
-    function startBrowser() {
+    function getBrowserURL() {
 
       if (selected === "chrome") {
 
-        window.location.href =
-          "https://inbrowserbrowser.onrender.com";
+        return "https://inbrowserbrowser.onrender.com";
 
       } else {
 
-        window.location.href =
-          "https://inbrowserbrowser-firefox.onrender.com";
+        return "https://inbrowserbrowser-firefox.onrender.com";
       }
+    }
+
+    function startBrowser() {
+
+      window.location.href = getBrowserURL();
+    }
+
+    function openNewTab() {
+
+      window.open(
+        getBrowserURL(),
+        "_blank"
+      );
     }
 
   </script>
