@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>InBrowserBrowser</title>
+
+  <style>
+
+    body {
+      margin: 0;
+      background: black;
+      color: white;
+
+      height: 100vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      font-family: Arial;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 70px;
+      margin-bottom: 60px;
+      font-weight: normal;
+    }
+
+    button {
+
+      width: 300px;
+      padding: 20px;
+
+      font-size: 40px;
+
+      background: white;
+      color: black;
+
+      border: none;
+
+      margin-top: 20px;
+
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>inbrowserbrowser</h1>
+
+    <button onclick="startChrome()">
+      chrome
+    </button>
+
+  </div>
+
+  <script>
+
+    function startChrome() {
+
+      window.location.href =
+        "https://inbrowserbrowser.onrender.com/";
+
+    }
+
+  </script>
+
+</body>
+
+</html>
