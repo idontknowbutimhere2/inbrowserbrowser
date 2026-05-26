@@ -1,0 +1,19 @@
+{
+  "name": "inbrowserbrowser",
+
+  "version": "1.0.0",
+
+  "description": "Disposable cloud browser platform",
+
+  "main": "server.js",
+
+  "scripts": {
+
+    "start": "node server.js"
+  },
+
+  "dependencies": {
+
+    "express": "^4.18.2"
+  }
+}
